@@ -75,7 +75,7 @@ def scrape_syllabus_data(driver, faculty, dest_dir):
     # 表示数変更
     driver.execute_script("func_search('JAA103SubCon');")
     driver.execute_script("func_showchg('JAA103SubCon', '500');")
-    log(f"{faculty} の科目インデックスを取得中です。")
+    log(f"{FACULTIES_MAP[faculty]} の科目インデックスを取得中です。")
     total_elements = 0
 
     with open(dest_path, "w", newline="", encoding="utf-8-sig") as dest:
@@ -135,7 +135,7 @@ def get_furigana(text):
     tagger = Tagger()
     furigana = "".join(word.feature.kana if word.feature.kana else word.surface
                        for word in tagger(text))
-    return "".join(furigana.split())
+    return " ".join(furigana.split())
 
 
     # 教員名のフォーマット関数。
@@ -162,7 +162,7 @@ def split_clss_date(date):
 
 # 科目ノートを作成する関数
 def create_subject_note(faculty, row_dir, subject_note_dir):
-    log(f"{FACULTIES_MAP[faculty]} をフォーマットしています。")
+    log(f"{FACULTIES_MAP[faculty]} の科目ノートを作成しています。")
     src_path = os.path.join(row_dir,
                             f"{FACULTIES_MAP[faculty]}_raw_syllabus_data.csv")
     dest_path = os.path.join(subject_note_dir,
