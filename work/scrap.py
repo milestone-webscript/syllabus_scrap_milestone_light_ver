@@ -184,11 +184,11 @@ def create_subject_note(faculty, row_dir, subject_note_dir):
                     ]
 
                     han_row[SUBJECT_KANA] = get_furigana(
-                        row[SUBJECT]) if han_row[SUBJECT] else ""
+                        han_row[SUBJECT]) if han_row[SUBJECT] else ""
                     han_row[TEACHER] = format_teacher_name(
-                        row[TEACHER]) if han_row[TEACHER] else ""
+                        han_row[TEACHER]) if han_row[TEACHER] else ""
                     han_row[TEACHER_KANA] = get_furigana(
-                        row[TEACHER]) if han_row[TEACHER] else ""
+                        han_row[TEACHER]) if han_row[TEACHER] else ""
 
                     # フリガナを付けてからもう一度半角変換
                     han_row = [
